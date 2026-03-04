@@ -1,18 +1,27 @@
-# public-site CI (Next.js 16 + TypeScript + Tailwind)
-# Runs on every push / PR to main.
-# Type-checks, lints, and builds the production Next.js export.
+# public-site CI + GitHub Pages deployment
+# On PR: type-check, lint, build (no deploy)
+# On push to master: type-check, lint, build, then deploy to GitHub Pages
 
 name: public-site CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [master, main]
   pull_request:
-    branches: [main, master]
+    branches: [master, main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   ci:
-    name: Lint → Build
+    name: Lint -> Build
     runs-on: ubuntu-latest
 
     steps:
@@ -24,29 +33,39 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Type-check (tsc --noEmit)
         run: npx tsc --noEmit
 
       - name: Lint (ESLint via Next CLI)
         run: npm run lint
-        continue-on-error: true   # eslint config may need tuning initially
+        continue-on-error: true
 
-      - name: Build production bundle (next build)
+      - name: Build static export (next build)
         run: npm run build
         env:
-          # Prevent Next.js telemetry in CI
           NEXT_TELEMETRY_DISABLED: 1
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Pages artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: public-site-build
-          path: .next/
-          retention-days: 7
+          path: out/
 
-  # ── Notify ci-cd repo ──────────────────────────────────────────────────────
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: ci
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
   notify-ci-cd:
     name: Notify pipeline-orchestrator
     runs-on: ubuntu-latest
