@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS='--no-warnings' next build",
-    "postbuild": "ls out/index.html",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run"
