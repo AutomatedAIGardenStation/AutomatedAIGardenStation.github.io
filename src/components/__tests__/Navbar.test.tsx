@@ -4,13 +4,13 @@ import Navbar from '../Navbar';
 describe('Navbar Component', () => {
   it('renders a hamburger button with aria-label', () => {
     render(<Navbar />);
-    const button = screen.getByLabelText('Toggle menu');
+    const button = screen.getByLabelText('Toggle navigation menu');
     expect(button).toBeInTheDocument();
   });
 
   it('toggles the mobile menu on hamburger click', () => {
     render(<Navbar />);
-    const button = screen.getByLabelText('Toggle menu');
+    const button = screen.getByLabelText('Toggle navigation menu');
 
     // Initially hidden
     let mobileMenu = document.getElementById('mobile-menu');

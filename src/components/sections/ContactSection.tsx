@@ -11,20 +11,22 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-primary-dark text-white">
+    <section id="contact" aria-labelledby="contact-heading" className="py-24 bg-primary-dark text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl font-bold tracking-tight mb-4">Stay in the Loop</h2>
+        <h2 id="contact-heading" className="text-4xl font-bold tracking-tight mb-4">Stay in the Loop</h2>
         <p className="text-xl text-primary-light/80 mb-10 max-w-2xl mx-auto">
           Garden Station is in active development. Sign up to be notified when it launches.
         </p>
 
         {submitted ? (
-          <div className="bg-primary/30 border border-primary text-white px-6 py-4 rounded-lg inline-block text-lg font-medium">
+          <div role="status" className="bg-primary/30 border border-primary text-white px-6 py-4 rounded-lg inline-block text-lg font-medium">
             Thanks, we&apos;ll be in touch!
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3" action="">
+            <label htmlFor="email" className="sr-only">Email address</label>
             <input
+              id="email"
               type="email"
               required
               placeholder="Enter your email"

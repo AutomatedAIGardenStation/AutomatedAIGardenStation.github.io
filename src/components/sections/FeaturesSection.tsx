@@ -29,10 +29,10 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section id="features" className="py-24 px-4 bg-gray-50 border-b border-gray-200 overflow-hidden">
+    <section id="features" aria-labelledby="features-heading" className="py-24 px-4 bg-gray-50 border-b border-gray-200 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900">What It Can Do</h2>
+          <h2 id="features-heading" className="text-3xl font-bold text-gray-900">What It Can Do</h2>
         </div>
 
         <div className="flex flex-col gap-16 lg:gap-24">
@@ -52,6 +52,7 @@ export default function FeaturesSection() {
                 </p>
               </div>
               <div
+                aria-hidden="true"
                 className={`w-full lg:w-1/2 aspect-video bg-primary-light rounded-2xl flex items-center justify-center text-7xl shadow-sm order-2 lg:order-none`}
               >
                 {feature.emoji}

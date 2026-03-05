@@ -2,10 +2,10 @@ import React from "react";
 
 export default function VersionsSection() {
   return (
-    <section id="versions" className="py-20 bg-gray-50 border-b border-gray-200">
+    <section id="versions" aria-labelledby="versions-heading" className="py-20 bg-gray-50 border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <h2 id="versions-heading" className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             Choose Your Garden Station
           </h2>
         </div>

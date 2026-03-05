@@ -7,8 +7,18 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Garden Station",
-  description: "Stationary, automated indoor growing environment with a robotic arm, sensor network, and AI decision engine.",
+  title: "Garden Station — Automated Indoor Growing System",
+  description: "Garden Station automates your entire plant lifecycle using computer vision, AI decisions, and precise hardware control. No cloud required.",
+  metadataBase: new URL("https://gardenstation.app"),
+  openGraph: {
+    title: "Garden Station — Automated Indoor Growing System",
+    description: "Garden Station automates your entire plant lifecycle using computer vision, AI decisions, and precise hardware control. No cloud required.",
+    type: "website",
+    siteName: "Garden Station",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

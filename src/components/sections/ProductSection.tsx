@@ -2,10 +2,10 @@ import React from "react";
 
 export default function ProductSection() {
   return (
-    <section id="product" className="py-24 px-4 bg-white border-b border-gray-200">
+    <section id="product" aria-labelledby="product-heading" className="py-24 px-4 bg-white border-b border-gray-200">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          <h2 id="product-heading" className="text-3xl font-bold text-gray-900 mb-6">
             What is Garden Station?
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
@@ -16,7 +16,7 @@ export default function ProductSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Automation */}
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-6 text-3xl">
+            <div aria-hidden="true" className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-6 text-3xl">
               ⚙️
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Automation</h3>
@@ -27,7 +27,7 @@ export default function ProductSection() {
 
           {/* AI-Driven Decisions */}
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-6 text-3xl">
+            <div aria-hidden="true" className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-6 text-3xl">
               🧠
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-4">AI-Driven Decisions</h3>
@@ -38,7 +38,7 @@ export default function ProductSection() {
 
           {/* Zero Cloud Dependency */}
           <div className="bg-gray-50 rounded-xl p-8 border border-gray-100 shadow-sm flex flex-col items-center text-center">
-            <div className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-6 text-3xl">
+            <div aria-hidden="true" className="w-16 h-16 bg-primary-light rounded-full flex items-center justify-center mb-6 text-3xl">
               🔒
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-4">Zero Cloud Dependency</h3>

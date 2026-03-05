@@ -25,10 +25,10 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 px-4 bg-white border-b border-gray-200">
+    <section id="how-it-works" aria-labelledby="how-it-works-heading" className="py-24 px-4 bg-white border-b border-gray-200">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">How It Works</h2>
+          <h2 id="how-it-works-heading" className="text-3xl font-bold text-gray-900 mb-6">How It Works</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             Garden Station runs a continuous closed-loop cycle — automatically, locally, and reliably.
           </p>

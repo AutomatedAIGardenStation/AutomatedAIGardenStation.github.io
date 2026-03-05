@@ -2,9 +2,9 @@ import React from "react";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-primary-light to-white">
+    <section aria-labelledby="hero-heading" className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-gradient-to-b from-primary-light to-white">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-6">
+        <h1 id="hero-heading" className="text-5xl font-bold tracking-tight text-gray-900 mb-6">
           Grow Smarter, Not Harder
         </h1>
         <p className="text-xl text-gray-700 mb-10 max-w-2xl leading-relaxed">

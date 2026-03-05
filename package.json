@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "ls out/index.html",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run"
