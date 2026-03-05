@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   output: "export",     // static HTML export for GitHub Pages
   trailingSlash: true,  // ensures paths resolve correctly on Pages
   images: {

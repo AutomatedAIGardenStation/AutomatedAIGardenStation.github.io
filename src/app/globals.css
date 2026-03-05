@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@config "../../tailwind.config.mjs";
+@config "../../tailwind.config.ts";
 
 @theme {
   --color-primary: #2e7d32;
