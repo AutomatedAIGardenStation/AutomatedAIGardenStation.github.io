@@ -10,15 +10,15 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { name: "Showcase", href: "#showcase" },
-    { name: "About", href: "#product" },
-    { name: "Features", href: "#features" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Tech Specs", href: "#technical-specs" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Waitlist", href: "#waitlist" },
-    { name: "Versions", href: "#versions" },
-    { name: "Contact", href: "#contact" },
+    { name: "Showcase", href: "/#showcase" },
+    { name: "About", href: "/#product" },
+    { name: "Features", href: "/#features" },
+    { name: "How It Works", href: "/#how-it-works" },
+    { name: "Tech Specs", href: "/#technical-specs" },
+    { name: "FAQ", href: "/support" },
+    { name: "Waitlist", href: "/#waitlist" },
+    { name: "Versions", href: "/pricing" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -33,20 +33,20 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className="text-gray-600 hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#features"
+            <Link
+              href="/#features"
               className="bg-primary text-white hover:bg-primary-dark transition-colors px-4 py-2 rounded-md text-sm font-medium"
             >
               Learn More
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center md:hidden">
@@ -102,22 +102,22 @@ export default function Navbar() {
         <div className="md:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={closeMenu}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#features"
+            <Link
+              href="/#features"
               onClick={closeMenu}
               className="block px-3 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-primary-dark"
             >
               Learn More
-            </a>
+            </Link>
           </div>
         </div>
       )}
