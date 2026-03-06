@@ -10,6 +10,7 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
+    { name: "Showcase", href: "#showcase" },
     { name: "About", href: "#product" },
     { name: "Features", href: "#features" },
     { name: "How It Works", href: "#how-it-works" },
