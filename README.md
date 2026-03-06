@@ -24,6 +24,11 @@ For full architecture and design documentation, please see the module documentat
 - **Styling:** Tailwind CSS (v4)
 - **Language:** TypeScript
 
+## Architecture Decisions
+
+- **Deployment Mode:** Strict Static Generation (SSG) via `output: 'export'`.
+- **Dynamic Content (SSR/ISR):** Not supported due to the GitHub Pages deployment target. Future CMS/blog implementations must fetch content at build time and output static HTML files.
+
 ## Setup Instructions
 
 1. Install dependencies:
