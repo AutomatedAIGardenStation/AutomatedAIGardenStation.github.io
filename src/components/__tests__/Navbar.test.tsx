@@ -8,6 +8,13 @@ describe('Navbar Component', () => {
     expect(button).toBeInTheDocument();
   });
 
+  it('includes a link to the Blog', () => {
+    render(<Navbar />);
+    const blogLinks = screen.getAllByText('Blog');
+    expect(blogLinks.length).toBeGreaterThan(0);
+    expect(blogLinks[0]).toHaveAttribute('href', '/blog');
+  });
+
   it('toggles the mobile menu on hamburger click', () => {
     render(<Navbar />);
     const button = screen.getByLabelText('Toggle navigation menu');

@@ -19,6 +19,7 @@ export default function Navbar() {
     { name: "Waitlist", href: "/#waitlist" },
     { name: "Versions", href: "/pricing" },
     { name: "Contact", href: "/contact" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (
