@@ -18,11 +18,23 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="flex space-x-6 text-sm text-gray-500">
-            <Link href="#" className="hover:text-primary">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <Link href="/pricing" className="hover:text-primary">
+              Pricing
+            </Link>
+            <Link href="/support" className="hover:text-primary">
+              Support & FAQ
+            </Link>
+            <Link href="/contact" className="hover:text-primary">
+              Contact
+            </Link>
+            <Link href="/docs" className="hover:text-primary">
+              Docs
+            </Link>
+            <Link href="/privacy" className="hover:text-primary">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-primary">
+            <Link href="/terms" className="hover:text-primary">
               Terms of Service
             </Link>
           </div>
