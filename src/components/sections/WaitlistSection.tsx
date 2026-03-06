@@ -4,10 +4,25 @@ import React, { useState } from "react";
 
 export default function WaitlistSection() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [honeypot, setHoneypot] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error" | "invalid">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Anti-spam: if honeypot is filled out, silently succeed
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("invalid");
+      return;
+    }
+
     setStatus("submitting");
 
     try {
@@ -44,7 +59,19 @@ export default function WaitlistSection() {
           Be the first to know when Garden Station is available. Spots are limited.
         </p>
 
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 relative">
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 relative" action="">
+          {/* Honeypot field - invisible to humans but bots will fill it */}
+          <div className="absolute left-[-9999px] top-[-9999px]" aria-hidden="true">
+            <input
+              type="text"
+              name="work_email"
+              tabIndex={-1}
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              autoComplete="off"
+            />
+          </div>
+
           <label htmlFor="waitlist-email" className="sr-only">Email address</label>
           <input
             id="waitlist-email"
@@ -52,9 +79,12 @@ export default function WaitlistSection() {
             required
             placeholder="Enter your email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (status === "invalid" || status === "error") setStatus("idle");
+            }}
             disabled={status === "submitting" || status === "success"}
-            className="flex-1 rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 bg-white disabled:opacity-50"
+            className={`flex-1 rounded-md border-0 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ${status === "invalid" ? "ring-red-500 focus:ring-red-500" : "ring-gray-300 focus:ring-primary"} placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 bg-white disabled:opacity-50`}
           />
           <button
             type="submit"
@@ -69,6 +99,11 @@ export default function WaitlistSection() {
           {status === "success" && (
             <p className="text-sm font-medium text-green-400 bg-green-400/10 px-4 py-1.5 rounded-full inline-block">
               You&apos;re on the list!
+            </p>
+          )}
+          {status === "invalid" && (
+            <p className="text-sm font-medium text-red-400 bg-red-400/10 px-4 py-1.5 rounded-full inline-block">
+              Please enter a valid email address.
             </p>
           )}
           {status === "error" && (
