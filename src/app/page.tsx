@@ -3,6 +3,7 @@ import InteractiveShowcaseSection from "@/components/sections/InteractiveShowcas
 import ProductSection from "@/components/sections/ProductSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
+import TechnicalSpecsSection from "@/components/sections/TechnicalSpecsSection";
 import VersionsSection from "@/components/sections/VersionsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <ProductSection />
       <FeaturesSection />
       <HowItWorksSection />
+      <TechnicalSpecsSection />
       <FAQSection />
       <WaitlistSection />
       <VersionsSection />
