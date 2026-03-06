@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: "About", href: "#product" },
     { name: "Features", href: "#features" },
     { name: "How It Works", href: "#how-it-works" },
+    { name: "Tech Specs", href: "#technical-specs" },
     { name: "FAQ", href: "#faq" },
     { name: "Waitlist", href: "#waitlist" },
     { name: "Versions", href: "#versions" },
