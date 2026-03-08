@@ -41,6 +41,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`antialiased font-sans text-gray-900 bg-white ${inter.variable}`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md z-50">
+          Skip to main content
+        </a>
         <Navbar />
         {children}
         <Footer />
